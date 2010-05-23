@@ -42,7 +42,7 @@ Gem::Specification.new do |s|
      "tasks/yard.rake",
      "tasks/yardstick.rake"
   ]
-  s.homepage = %q{http://github.com/datamapper/dm-more/tree/master/adapters/dm-ferret-adapter}
+  s.homepage = %q{http://github.com/datamapper/dm-ferret-adapter}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{datamapper}

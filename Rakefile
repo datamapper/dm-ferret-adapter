@@ -10,7 +10,7 @@ begin
     gem.summary     = 'Ferret Adapter for DataMapper'
     gem.description = gem.summary
     gem.email       = 'bernerd [a] wieck [d] com'
-    gem.homepage    = 'http://github.com/datamapper/dm-more/tree/master/adapters/%s' % gem.name
+    gem.homepage    = 'http://github.com/datamapper/%s' % gem.name
     gem.authors     = [ 'Bernerd Schaefer' ]
 
     gem.rubyforge_project = 'datamapper'
