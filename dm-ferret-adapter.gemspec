@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bernerd Schaefer"]
-  s.date = %q{2010-05-24}
+  s.date = %q{2010-05-27}
   s.default_executable = %q{ferret}
   s.description = %q{Ferret Adapter for DataMapper}
   s.email = %q{bernerd [a] wieck [d] com}
@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
      "spec/spec.opts",
      "spec/spec_helper.rb",
      "tasks/ci.rake",
+     "tasks/local_gemfile.rake",
      "tasks/metrics.rake",
      "tasks/spec.rake",
      "tasks/yard.rake",
