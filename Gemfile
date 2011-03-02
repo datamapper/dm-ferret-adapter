@@ -7,38 +7,29 @@ REPO_POSTFIX = SOURCE == :path ? ''                                : '.git'
 DATAMAPPER   = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
 DM_VERSION   = '~> 1.1.0.rc1'
 
-group :runtime do
-
-  gem 'dm-core', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
-  gem 'ferret',  '~> 0.11.6'
-
-end
+gem 'dm-core', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
+gem 'ferret',  '~> 0.11.6'
 
 group :development do
 
   gem 'jeweler',   '~> 1.5.2'
   gem 'rake',      '~> 0.8.7'
   gem 'rspec',     '~> 1.3.1'
-  gem 'uuidtools', '~> 2.1.1'
+  gem 'uuidtools', '~> 2.1.2'
 
 end
 
-group :quality do
+platforms :mri_18 do
+  group :quality do
 
-  gem 'rcov',      '~> 0.9.9', :platforms => :mri_18
-  gem 'yard',      '~> 0.6'
-  gem 'yardstick', '~> 0.2'
+    gem 'rcov',      '~> 0.9.9'
+    gem 'yard',      '~> 0.6'
+    gem 'yardstick', '~> 0.2'
 
+  end
 end
 
 group :datamapper do
-
-  if ENV['EXTLIB']
-    gem 'extlib', '~> 0.9.15', SOURCE => "#{DATAMAPPER}/extlib#{REPO_POSTFIX}", :require => nil
-  else
-    gem 'activesupport', '~> 3.0.4', :require => nil
-    gem 'i18n',          '~> 0.5.0'
-  end
 
   plugins = ENV['PLUGINS'] || ENV['PLUGIN']
   plugins = plugins.to_s.tr(',', ' ').split.uniq
