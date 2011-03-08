@@ -12,7 +12,7 @@ module DataMapper
 
       def create(resources)
         resources.each do |resource|
-          attributes = resource.attributes(:field).to_mash
+          attributes = DataMapper::Ext::Hash.to_mash(resource.attributes(:field))
 
           # Since we don't inspect the models before generating the indices,
           # we'll map the resource's key to the :id column.
@@ -32,7 +32,7 @@ module DataMapper
         ferret_query = dm_query_to_ferret_query(query)
 
         @index.search(ferret_query, :limit => query.limit).map do |lazy_doc|
-          fields.map { |p| [ p, p.typecast(lazy_doc[p.field]) ] }.to_hash.update(
+          DataMapper::Ext::Array.to_hash(fields.map { |p| [ p, p.typecast(lazy_doc[p.field]) ] }).update(
             key.field => key.typecast(lazy_doc[:id])
           )
         end
