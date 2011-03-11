@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bernerd Schaefer"]
-  s.date = %q{2011-03-01}
+  s.date = %q{2011-03-10}
   s.default_executable = %q{ferret}
   s.description = %q{Ferret Adapter for DataMapper}
   s.email = %q{bernerd [a] wieck [d] com}
@@ -42,7 +42,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/datamapper/dm-ferret-adapter}
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{datamapper}
-  s.rubygems_version = %q{1.5.2}
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{Ferret Adapter for DataMapper}
   s.test_files = [
     "spec/adapter_spec.rb",
