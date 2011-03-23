@@ -32,7 +32,7 @@ module DataMapper
         ferret_query = dm_query_to_ferret_query(query)
 
         @index.search(ferret_query, :limit => query.limit).map do |lazy_doc|
-          DataMapper::Ext::Array.to_hash(fields.map { |p| [ p, p.typecast(lazy_doc[p.field]) ] }).update(
+          Hash[ fields.map { |p| [ p, p.typecast(lazy_doc[p.field]) ] } ].update(
             key.field => key.typecast(lazy_doc[:id])
           )
         end
