@@ -20,6 +20,8 @@ describe DataMapper::Adapters::FerretAdapter do
       property :uuid, String, :default => proc { UUIDTools::UUID.random_create }, :key => true
       property :happy, Boolean, :default => true
     end
+
+    DataMapper.finalize
   end
 
   after do
