@@ -2,12 +2,16 @@ require 'pathname'
 
 source 'http://rubygems.org'
 
-SOURCE       = ENV.fetch('SOURCE', :git).to_sym
-REPO_POSTFIX = SOURCE == :path ? ''                                : '.git'
-DATAMAPPER   = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
-DM_VERSION   = '~> 1.2.0.rc1'
+SOURCE         = ENV.fetch('SOURCE', :git).to_sym
+REPO_POSTFIX   = SOURCE == :path ? ''                                : '.git'
+DATAMAPPER     = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
+DM_VERSION     = '~> 1.2.0.rc1'
+CURRENT_BRANCH = ENV.fetch('GIT_BRANCH', 'master')
 
-gem 'dm-core', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
+gem 'dm-core', DM_VERSION,
+  SOURCE  => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}",
+  :branch => CURRENT_BRANCH
+
 gem 'ferret',  '~> 0.11.6'
 
 group :development do
@@ -35,7 +39,9 @@ group :datamapper do
   plugins = plugins.to_s.tr(',', ' ').split.uniq
 
   plugins.each do |plugin|
-    gem plugin, DM_VERSION, SOURCE => "#{DATAMAPPER}/#{plugin}#{REPO_POSTFIX}"
+    gem plugin, DM_VERSION,
+      SOURCE  => "#{DATAMAPPER}/#{plugin}#{REPO_POSTFIX}",
+      :branch => CURRENT_BRANCH
   end
 
 end
