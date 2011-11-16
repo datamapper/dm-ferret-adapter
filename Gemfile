@@ -1,6 +1,8 @@
 require 'pathname'
 
-source 'http://rubygems.org'
+source :rubygems
+
+gemspec
 
 SOURCE         = ENV.fetch('SOURCE', :git).to_sym
 REPO_POSTFIX   = SOURCE == :path ? ''                                : '.git'
