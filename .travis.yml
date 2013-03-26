@@ -23,4 +23,4 @@ matrix:
   allow_failures:
     - rvm: rbx-19mode
 env:
-  - "GIT_BRANCH=release-1.2 ADAPTER=sqlite"
+  - "GIT_BRANCH=release-1.2"
